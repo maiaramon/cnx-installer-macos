@@ -86,6 +86,11 @@ python3.13 ~/Documents/apps/CNX_Installer/CNX_Installer_mac.py
 | Cartão SD não aparece | Reconecte o cartão e clique em **Atualizar** |
 | Falha ao formatar | Abra o Utilitário de Disco, ejete/desmonte o cartão e tente de novo |
 | Falha no download | Verifique a internet; o app tenta automaticamente o repositório reserva |
+| Console mostra **"failed to open payload.bin"** | O cartão precisa ser **MBR** (não GPT). Reformate com: `diskutil eraseDisk FAT32 "SWITCH SD" MBRFormat /dev/diskN` e copie o pacote de novo. O app já formata em MBR a partir da v1.1. |
+
+> ℹ️ **Esquema de partição:** o Switch (e modchips como picofly/hwfly) só leem
+> cartões com partição **MBR**. O macOS formata em GPT por padrão, o que faz o
+> console bootar com erro. O instalador usa `MBRFormat` para evitar isso.
 
 ---
 
@@ -152,6 +157,11 @@ python3.13 ~/Documents/apps/CNX_Installer/CNX_Installer_mac.py
 | SD card not listed | Reconnect the SD card, then click **Atualizar** |
 | Format fails | Open Disk Utility, eject/unmount the SD card first, then retry |
 | Download fails | Check your internet connection; the app will auto-retry with the backup repo |
+| Console shows **"failed to open payload.bin"** | The card must be **MBR** (not GPT). Reformat with: `diskutil eraseDisk FAT32 "SWITCH SD" MBRFormat /dev/diskN` and copy the pack again. The app formats as MBR since v1.1. |
+
+> ℹ️ **Partition scheme:** the Switch (and modchips like picofly/hwfly) only read
+> cards with an **MBR** partition map. macOS formats as GPT by default, which makes
+> the console boot with an error. The installer uses `MBRFormat` to avoid this.
 
 ---
 

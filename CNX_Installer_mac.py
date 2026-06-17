@@ -529,8 +529,12 @@ class App(tk.Tk):
     def _install(self, dev):
         # 1 — format
         self._log("", "info")
-        self._log("[1/4]  Formatando {} como FAT32…".format(dev), "step")
-        r = subprocess.run(["diskutil", "eraseDisk", "FAT32", "SWITCH SD", dev],
+        self._log("[1/4]  Formatando {} como FAT32 (MBR)…".format(dev), "step")
+        # IMPORTANT: MBRFormat is required. The Nintendo Switch (and modchips
+        # like picofly/hwfly) only read SD cards with an MBR partition scheme;
+        # without it diskutil defaults to GPT, which boots to "failed to open
+        # payload.bin" on the console.
+        r = subprocess.run(["diskutil", "eraseDisk", "FAT32", "SWITCH SD", "MBRFormat", dev],
                            capture_output=True, text=True)
         if r.returncode != 0:
             raise RuntimeError(r.stderr.strip() or "diskutil eraseDisk falhou")
