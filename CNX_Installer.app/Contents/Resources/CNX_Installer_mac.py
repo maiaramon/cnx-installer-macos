@@ -212,7 +212,34 @@ class App(tk.Tk):
         # close dropdown when clicking elsewhere
         self.canvas.bind("<Button-1>", self._maybe_close_dropdown, add="+")
 
+        # bring the window to the foreground once the event loop starts
+        self.after(100, self._bring_to_front)
+
     # ── geometry ────────────────────────────────────────────────────────────────
+
+    def _bring_to_front(self):
+        """Raise the window above other apps and grab focus.
+
+        When launched from the .app's shell-script launcher, the process does
+        not become the active macOS application on its own, so the window can
+        open hidden behind everything (no Dock icon to click). Force it front.
+        """
+        try:
+            self.lift()
+            self.attributes("-topmost", True)
+            self.after(400, lambda: self.attributes("-topmost", False))
+            self.focus_force()
+        except tk.TclError:
+            pass
+        try:
+            subprocess.run(
+                ["osascript", "-e",
+                 'tell application "System Events" to set frontmost of '
+                 "(first process whose unix id is {}) to true".format(os.getpid())],
+                check=False, capture_output=True, timeout=3,
+            )
+        except Exception:
+            pass
 
     def _center(self):
         self.update_idletasks()
