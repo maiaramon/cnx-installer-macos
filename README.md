@@ -139,6 +139,29 @@ CNX_Installer/
 └── README.md
 ```
 
+## Como contribuir / Contributing
+
+🇧🇷 Contribuições são bem-vindas! Abra uma *issue* para relatar bugs ou sugerir
+melhorias, ou mande um *pull request*:
+
+1. Faça um fork deste repositório
+2. Crie uma branch (`git checkout -b minha-melhoria`)
+3. Teste no macOS antes de enviar — o app usa apenas o Python do sistema (`/usr/bin/python3`), sem dependências
+4. Abra o PR descrevendo a mudança
+
+🇺🇸 Contributions are welcome! Open an *issue* for bugs or ideas, or send a
+*pull request*:
+
+1. Fork this repo
+2. Create a branch (`git checkout -b my-improvement`)
+3. Test on macOS before submitting — the app only uses system Python (`/usr/bin/python3`), no dependencies
+4. Open the PR describing your change
+
+> ⚠️ Mantenha `CNX_Installer_mac.py` e `CNX_Installer.app/Contents/Resources/CNX_Installer_mac.py` idênticos (a cópia no bundle deve refletir o script principal). /
+> Keep both copies of `CNX_Installer_mac.py` in sync.
+
+---
+
 ## Licença / License
 
 O CNX Pack é distribuído sob **GPLv3** pelo projeto original.

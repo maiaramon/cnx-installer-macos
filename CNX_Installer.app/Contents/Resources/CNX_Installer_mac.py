@@ -1,4 +1,21 @@
 #!/usr/bin/python3
+#
+# CNX Pack Installer - macOS
+# Copyright (C) 2026 maiaramon
+#
+# macOS port of CNX_Installer_v1.1. The CNX Pack itself is created and
+# maintained by CostelaBR — https://github.com/CostelaCNX/CNX
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details: https://www.gnu.org/licenses/
+#
 """
 CNX Pack Installer - macOS
 A polished macOS port of CNX_Installer_v1.1 by CostelaBR.
