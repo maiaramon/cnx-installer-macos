@@ -1,4 +1,42 @@
 #!/bin/bash
-# Launcher for CNX Pack Installer — uses macOS system Python (has tkinter built in)
+# Launcher for CNX Pack Installer.
+#
+# The whole UI is drawn on a Tk canvas. macOS' built-in Python (/usr/bin/python3)
+# ships an ancient Tk 8.5.9 that renders a BLANK window on recent macOS, so we
+# look for a Python with a modern Tk (>= 8.6) first — Homebrew or python.org —
+# and only fall back to the system Python as a last resort.
 SELF="$(cd "$(dirname "$0")" && pwd)"
-exec /usr/bin/python3 "$SELF/../Resources/CNX_Installer_mac.py"
+SCRIPT="$SELF/../Resources/CNX_Installer_mac.py"
+
+has_modern_tk() {
+    [ -x "$1" ] || return 1
+    "$1" -c 'import sys, tkinter; sys.exit(0 if tkinter.TkVersion >= 8.6 else 1)' >/dev/null 2>&1
+}
+
+CANDIDATES=(
+    /opt/homebrew/bin/python3.13
+    /opt/homebrew/bin/python3.12
+    /opt/homebrew/bin/python3.11
+    /opt/homebrew/bin/python3
+    /usr/local/bin/python3
+)
+for d in /Library/Frameworks/Python.framework/Versions/*/bin/python3; do
+    CANDIDATES+=("$d")
+done
+CANDIDATES+=(/usr/bin/python3)
+
+for py in "${CANDIDATES[@]}"; do
+    if has_modern_tk "$py"; then
+        exec "$py" "$SCRIPT"
+    fi
+done
+
+# Nothing with a modern Tk was found — explain how to fix it.
+osascript -e 'display alert "CNX Pack Installer" message "Não encontrei um Python com Tk 8.6+ (necessário para a janela renderizar no macOS atual).
+
+Instale com o Homebrew:
+
+    brew install python-tk@3.13
+
+Depois abra o app de novo." as critical' >/dev/null 2>&1
+exit 1

@@ -39,8 +39,18 @@ Installs the **CNX Pack** (Atmosphère custom firmware) onto a Nintendo Switch S
 - **macOS 10.15 (Catalina) ou superior**
 - **Conexão com a internet** (baixa ~160 MB do GitHub)
 - Um leitor de cartão SD / o cartão conectado
+- Um **Python com Tk 8.6+** (veja abaixo)
 
-Sem pacotes Python para instalar — usa o Python do sistema em `/usr/bin/python3`, que já vem com Tk/tkinter.
+> ⚠️ **macOS recente (Sequoia/Tahoe):** o Python que vem no sistema (`/usr/bin/python3`)
+> usa um **Tk 8.5.9 antigo** que abre a **janela vazia**. Instale um Python com Tk
+> moderno via [Homebrew](https://brew.sh):
+>
+> ```bash
+> brew install python-tk@3.13
+> ```
+>
+> O app detecta esse Python automaticamente. Em versões mais antigas do macOS o
+> Python do sistema ainda funciona, sem instalar nada.
 
 ### Como usar
 
@@ -57,16 +67,21 @@ Sem pacotes Python para instalar — usa o Python do sistema em `/usr/bin/python
 **Opção B — Terminal**
 
 ```bash
+# macOS recente (após brew install python-tk@3.13):
+python3.13 ~/Documents/apps/CNX_Installer/CNX_Installer_mac.py
+
+# macOS antigo (Tk do sistema ainda funciona):
 /usr/bin/python3 ~/Documents/apps/CNX_Installer/CNX_Installer_mac.py
 ```
 
-> Não use o `python3` do Homebrew — ele não inclui o tkinter.
-> Sempre use o caminho completo `/usr/bin/python3`.
+> Se a janela abrir **vazia**, é o Tk antigo do `/usr/bin/python3` — use um Python
+> com Tk 8.6+ (`brew install python-tk@3.13`).
 
 ### Solução de problemas
 
 | Problema | Solução |
 |---|---|
+| **Janela abre vazia** | Tk antigo do `/usr/bin/python3`. Rode `brew install python-tk@3.13` e abra de novo |
 | "App está danificado" / não abre | No Terminal: `xattr -cr ~/Documents/apps/CNX_Installer/CNX_Installer.app` e tente de novo |
 | Cartão SD não aparece | Reconecte o cartão e clique em **Atualizar** |
 | Falha ao formatar | Abra o Utilitário de Disco, ejete/desmonte o cartão e tente de novo |
@@ -90,8 +105,18 @@ Sem pacotes Python para instalar — usa o Python do sistema em `/usr/bin/python
 - **macOS 10.15 (Catalina) or later**
 - **Internet connection** (downloads ~160 MB from GitHub)
 - An SD card reader / the SD card connected
+- A **Python with Tk 8.6+** (see below)
 
-No Python packages to install — uses the system Python at `/usr/bin/python3`, which ships with Tk/tkinter.
+> ⚠️ **Recent macOS (Sequoia/Tahoe):** the built-in Python (`/usr/bin/python3`)
+> ships an **old Tk 8.5.9** that opens a **blank window**. Install a Python with a
+> modern Tk via [Homebrew](https://brew.sh):
+>
+> ```bash
+> brew install python-tk@3.13
+> ```
+>
+> The app detects that Python automatically. On older macOS the system Python
+> still works with nothing to install.
 
 ### How to run
 
@@ -108,16 +133,21 @@ No Python packages to install — uses the system Python at `/usr/bin/python3`, 
 **Option B — Terminal**
 
 ```bash
+# Recent macOS (after brew install python-tk@3.13):
+python3.13 ~/Documents/apps/CNX_Installer/CNX_Installer_mac.py
+
+# Older macOS (system Tk still works):
 /usr/bin/python3 ~/Documents/apps/CNX_Installer/CNX_Installer_mac.py
 ```
 
-> Do **not** use `python3` from Homebrew — it does not include tkinter.
-> Always use the full path `/usr/bin/python3`.
+> If the window opens **blank**, that's the old Tk in `/usr/bin/python3` — use a
+> Python with Tk 8.6+ (`brew install python-tk@3.13`).
 
 ### Troubleshooting
 
 | Problem | Fix |
 |---|---|
+| **Window opens blank** | Old Tk in `/usr/bin/python3`. Run `brew install python-tk@3.13` and reopen |
 | "App is damaged" / won't open | Run: `xattr -cr ~/Documents/apps/CNX_Installer/CNX_Installer.app` then retry |
 | SD card not listed | Reconnect the SD card, then click **Atualizar** |
 | Format fails | Open Disk Utility, eject/unmount the SD card first, then retry |
