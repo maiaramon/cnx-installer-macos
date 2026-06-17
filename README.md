@@ -19,7 +19,7 @@ Installs the **CNX Pack** (Atmosphère custom firmware) onto a Nintendo Switch S
 
 | Idle | Running | Done |
 |---|---|---|
-| ![Installer](screenshots/installer.png) | ![Installing](screenshots/installer-running.png) | ![Done](screenshots/worked.png) |
+| ![Installer](screenshots/01-idle.png) | ![Installing](screenshots/02-running.png) | ![Done](screenshots/03-done.png) |
 
 ---
 
