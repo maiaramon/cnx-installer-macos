@@ -24,6 +24,10 @@ Quem usa Mac e queria montar o cartão SD com o **CNX Pack** (o pacote all-in-on
 2. **Botão direito no `.app` → Abrir** (só na 1ª vez, porque o app ainda não é assinado pela Apple)
 3. Selecione o cartão SD e clique em **INICIAR PROCESSO**
 
+> **macOS recente (Sequoia/Tahoe):** se a janela abrir **vazia**, é o Tk antigo do Python do sistema. Resolve instalando um Python com Tk moderno:
+> `brew install python-tk@3.13`
+> O app detecta sozinho. Em macOS mais antigo não precisa instalar nada.
+
 > Se aparecer *"o app está danificado / desenvolvedor não verificado"*, é normal em app gratuito não assinado. Resolve com o botão direito → Abrir, ou rodando no Terminal:
 > `xattr -cr ~/Downloads/CNX_Installer.app`
 
@@ -45,4 +49,4 @@ Qualquer bug ou sugestão, abre uma issue no repo. Espero que ajude a galera de 
 
 The official CNX installer (Atmosphère CFW pack for Nintendo Switch, by CostelaBR) is Windows-only, so I made a free, open-source **macOS port**: https://github.com/maiaramon/cnx-installer-macos
 
-It lists your external disks, formats the SD card as FAT32, downloads the latest CNX Pack and extracts everything. No dependencies (uses system Python), works on macOS 10.15+. First launch: right-click -> Open (unsigned app). All firmware credit goes to the original project: https://github.com/CostelaCNX/CNX
+It lists your external disks, formats the SD card as FAT32, downloads the latest CNX Pack and extracts everything. Works on macOS 10.15+. First launch: right-click -> Open (unsigned app). On recent macOS (Sequoia/Tahoe), if the window opens blank, run `brew install python-tk@3.13` (old system Tk issue) — the app auto-detects it. All firmware credit goes to the original project: https://github.com/CostelaCNX/CNX
