@@ -4,7 +4,7 @@
 # Copyright (C) 2026 maiaramon
 #
 # macOS port of CNX_Installer. The CNX Pack itself is created and
-# maintained by CostelaBR — https://github.com/CostelaCNX/CNX
+# maintained by CostelaBR — https://costelabr.xyz/
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

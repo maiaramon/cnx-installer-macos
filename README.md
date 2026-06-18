@@ -2,14 +2,14 @@
 
 > 🇧🇷 Português abaixo · 🇺🇸 English below
 
-Port para **macOS** do `CNX_Installer_v1.1`, originalmente feito para Windows.
+Port para **macOS** do CNX Installer, originalmente feito para Windows.
 Instala o **CNX Pack** (custom firmware Atmosphère) em um cartão SD de Nintendo Switch.
 
-macOS port of `CNX_Installer_v1.1` (originally Windows-only).
+macOS port of CNX Installer (originally Windows-only).
 Installs the **CNX Pack** (Atmosphère custom firmware) onto a Nintendo Switch SD card.
 
 > **Créditos / Credits:** o CNX Pack é desenvolvido e mantido por **CostelaBR** —
-> repositório oficial / official repo: **https://github.com/CostelaCNX/CNX**.
+> site oficial / official site: **https://costelabr.xyz/**.
 > Este projeto é apenas um instalador não-oficial para macOS. /
 > This is an unofficial macOS installer; all firmware content belongs to the original project.
 
@@ -30,14 +30,14 @@ Installs the **CNX Pack** (Atmosphère custom firmware) onto a Nintendo Switch S
 
 1. Lista apenas os discos externos/removíveis (nunca toca no disco interno)
 2. Formata o microSD selecionado em **FAT32** (exigido pelo CFW do Switch)
-3. Baixa o CNX Pack mais recente direto do [release oficial](https://github.com/CostelaCNX/CNX/releases/latest) (~160 MB)
+3. Baixa o CNX Pack mais recente direto do [site oficial](https://costelabr.xyz/) (~160 MB)
 4. Extrai todos os arquivos no cartão
 5. Extrai o pacote secundário escondido em `bootloader/bootlogo_atmo_sys.bmp`
 
 ### Requisitos
 
 - **macOS 10.15 (Catalina) ou superior**
-- **Conexão com a internet** (baixa ~160 MB do GitHub)
+- **Conexão com a internet** (baixa ~160 MB do site oficial)
 - Um leitor de cartão SD / o cartão conectado
 - Um **Python com Tk 8.6+** (veja abaixo)
 
@@ -101,14 +101,14 @@ python3.13 ~/Documents/apps/CNX_Installer/CNX_Installer_mac.py
 
 1. Lists your external/removable disks (never touches the internal drive)
 2. Formats the selected SD card as **FAT32** (required by Switch CFW)
-3. Downloads the latest CNX Pack from the [official release](https://github.com/CostelaCNX/CNX/releases/latest) (~160 MB)
+3. Downloads the latest CNX Pack from the [official site](https://costelabr.xyz/) (~160 MB)
 4. Extracts all files to the SD card
 5. Extracts a secondary package hidden inside `bootloader/bootlogo_atmo_sys.bmp`
 
 ### Requirements
 
 - **macOS 10.15 (Catalina) or later**
-- **Internet connection** (downloads ~160 MB from GitHub)
+- **Internet connection** (downloads ~160 MB from the official site)
 - An SD card reader / the SD card connected
 - A **Python with Tk 8.6+** (see below)
 
@@ -206,4 +206,4 @@ melhorias, ou mande um *pull request*:
 
 O CNX Pack é distribuído sob **GPLv3** pelo projeto original.
 The CNX Pack is distributed under **GPLv3** by the original project.
-See https://github.com/CostelaCNX/CNX for details.
+See https://costelabr.xyz/ for details.
